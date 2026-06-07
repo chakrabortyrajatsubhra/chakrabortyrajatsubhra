@@ -9,18 +9,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400;1,9..144,600&family=Newsreader:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#0d0c0a;
-    --bg-2:#14120e;
-    --surface:#1a1813;
-    --surface-2:#221f18;
-    --text:#ece6da;
-    --muted:#968d80;
-    --faint:#5f594f;
-    --accent:#f0b429;
-    --accent-soft:rgba(240,180,41,.12);
-    --accent-line:rgba(240,180,41,.45);
-    --line:rgba(236,230,218,.10);
-    --line-strong:rgba(236,230,218,.18);
+    --bg:#ffffff;
+    --bg-2:#f7f3ec;
+    --surface:#faf6ef;
+    --surface-2:#f0eadd;
+    --text:#1a1611;
+    --muted:#6b6256;
+    --faint:#a89e8e;
+    --accent:#b9770c;
+    --accent-bright:#dd9b14;
+    --accent-soft:rgba(185,119,12,.12);
+    --accent-line:rgba(185,119,12,.40);
+    --line:rgba(26,22,17,.10);
+    --line-strong:rgba(26,22,17,.17);
     --display:'Fraunces',Georgia,serif;
     --body:'Newsreader',Georgia,serif;
     --mono:'JetBrains Mono',monospace;
@@ -40,11 +41,11 @@
   body::before{
     content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
     background:
-      radial-gradient(900px 600px at 78% -8%, rgba(240,180,41,.10), transparent 60%),
-      radial-gradient(700px 700px at 8% 100%, rgba(240,180,41,.04), transparent 60%);
+      radial-gradient(900px 600px at 78% -8%, rgba(185,119,12,.07), transparent 60%),
+      radial-gradient(700px 700px at 8% 100%, rgba(185,119,12,.035), transparent 60%);
   }
   body::after{
-    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;
+    content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.03;
     background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
   .wrap{position:relative;z-index:1;max-width:1080px;margin:0 auto;padding:0 28px}
@@ -53,7 +54,7 @@
   nav{
     position:sticky;top:0;z-index:50;
     backdrop-filter:blur(12px);
-    background:rgba(13,12,10,.72);
+    background:rgba(255,255,255,.78);
     border-bottom:1px solid var(--line);
   }
   .nav-inner{max-width:1080px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;justify-content:space-between}
@@ -91,13 +92,13 @@
   }
   .role b{color:var(--text);font-style:normal;font-weight:500}
   .about-lead{
-    max-width:680px;font-size:19px;line-height:1.72;color:#d7d1c5;
+    max-width:680px;font-size:19px;line-height:1.72;color:#3a342a;
     opacity:0;animation:rise .9s .4s forwards;
   }
   .about-lead .hl{color:var(--accent);font-style:italic}
   .quote{
     margin:38px 0 6px;padding-left:20px;border-left:2px solid var(--accent-line);
-    font-family:var(--display);font-style:italic;font-size:20px;color:#cdc6b9;max-width:620px;
+    font-family:var(--display);font-style:italic;font-size:20px;color:#4a4234;max-width:620px;
     opacity:0;animation:rise .9s .52s forwards;
   }
   .quote span{display:block;font-family:var(--mono);font-style:normal;font-size:12px;letter-spacing:1.5px;color:var(--faint);margin-top:8px;text-transform:uppercase}
@@ -110,7 +111,7 @@
   }
   .socials a:hover{border-color:var(--accent-line);color:var(--accent);background:var(--accent-soft);transform:translateY(-2px)}
   .socials a.cv{border-color:var(--accent-line);color:var(--accent)}
-  .socials a.cv:hover{background:var(--accent);color:#0d0c0a}
+  .socials a.cv:hover{background:var(--accent);color:#fff}
 
   /* ---------- FEATURED NEWS ---------- */
   section.featured{padding:62px 0 30px}
@@ -126,6 +127,7 @@
     border:1px solid var(--line);border-radius:6px;padding:24px 22px;
     position:relative;overflow:hidden;transition:all .25s;
   }
+  a.news-card{text-decoration:none;color:inherit;display:block}
   .news-card::before{
     content:"";position:absolute;top:0;left:0;width:100%;height:2px;
     background:linear-gradient(90deg,var(--accent),transparent);transform:scaleX(0);transform-origin:left;transition:transform .35s;
@@ -142,7 +144,7 @@
   .tabnav{
     display:flex;flex-wrap:wrap;gap:4px;border-bottom:1px solid var(--line);
     margin-bottom:46px;position:sticky;top:62px;z-index:20;
-    background:rgba(13,12,10,.85);backdrop-filter:blur(8px);
+    background:rgba(255,255,255,.85);backdrop-filter:blur(8px);
   }
   .tabnav button{
     font-family:var(--mono);font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;
@@ -165,7 +167,7 @@
     font-family:var(--mono);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;
     color:var(--accent);margin-bottom:20px;
   }
-  .lead-text{font-size:19px;line-height:1.75;color:#d7d1c5;max-width:760px;margin-bottom:24px}
+  .lead-text{font-size:19px;line-height:1.75;color:#3a342a;max-width:760px;margin-bottom:24px}
   .lead-text .hl{color:var(--accent);font-style:italic}
 
   .tags{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:8px}
@@ -191,7 +193,7 @@
   .pub .pauth u{color:var(--text);text-decoration:none;border-bottom:1px solid var(--accent-line)}
   .pub .pmeta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:4px}
   .pub .venue{font-family:var(--mono);font-size:11.5px;letter-spacing:.5px;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:3px}
-  .pub .oral{font-family:var(--mono);font-size:11px;letter-spacing:.5px;color:#0d0c0a;background:var(--accent);padding:4px 9px;border-radius:3px;font-weight:700}
+  .pub .oral{font-family:var(--mono);font-size:11px;letter-spacing:.5px;color:#fff;background:var(--accent);padding:4px 9px;border-radius:3px;font-weight:700}
   .pub a.lnk{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line-strong);transition:all .2s}
   .pub a.lnk:hover{color:var(--accent);border-color:var(--accent-line)}
 
@@ -199,14 +201,14 @@
   .news-item{display:grid;grid-template-columns:40px 1fr;gap:16px;padding:16px 0;border-top:1px solid var(--line)}
   .news-item:last-child{border-bottom:1px solid var(--line)}
   .news-item .ic{font-size:20px;padding-top:2px}
-  .news-item p{font-size:16.5px;color:#d7d1c5;line-height:1.55}
+  .news-item p{font-size:16.5px;color:#3a342a;line-height:1.55}
   .news-item a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-line)}
   .news-item a:hover{opacity:.8}
   .news-item strong{color:var(--text);font-weight:500}
 
   /* simple list */
   .slist{list-style:none}
-  .slist li{padding:13px 0;border-top:1px solid var(--line);font-size:16.5px;color:#d7d1c5;line-height:1.5;display:flex;gap:14px}
+  .slist li{padding:13px 0;border-top:1px solid var(--line);font-size:16.5px;color:#3a342a;line-height:1.5;display:flex;gap:14px}
   .slist li:last-child{border-bottom:1px solid var(--line)}
   .slist li::before{content:"—";color:var(--accent);flex-shrink:0}
   .slist li a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--accent-line)}
@@ -232,7 +234,7 @@
   .portrait-frame{
     position:relative;border:1px solid var(--line-strong);border-radius:8px;overflow:hidden;
     aspect-ratio:4/5;background:linear-gradient(160deg,var(--surface),var(--bg-2));
-    box-shadow:0 30px 60px -30px rgba(0,0,0,.85);
+    box-shadow:0 24px 50px -30px rgba(0,0,0,.30);
   }
   .portrait-frame img{width:100%;height:100%;object-fit:cover;filter:grayscale(.25) contrast(1.04);transition:filter .4s}
   .portrait-frame:hover img{filter:grayscale(0) contrast(1)}
@@ -296,7 +298,7 @@
     <div class="hero-text">
     <div class="eyebrow">PhD Candidate · Computer Science · UNC Charlotte</div>
     <h1 class="name">Rajatsubhra<br>Chakraborty</h1>
-    <p class="role">Third-year Ph.D. student researching the intersection of <b>interpretability, fairness, and bias</b> in generative vision — advised by Dr. Depeng Xu &amp; Dr. Cori Faklaris.</p>
+    <p class="role">Third-year Ph.D. student researching the intersection of <b>interpretability, fairness, and bias</b> in generative vision — advised by <a href="https://webpages.charlotte.edu/dxu7/" target="_blank" rel="noopener" style="color:var(--accent);font-style:normal">Dr. Depeng Xu</a> &amp; <a href="https://corifaklaris.com" target="_blank" rel="noopener" style="color:var(--accent);font-style:normal">Dr. Cori Faklaris</a>.</p>
     <p class="about-lead">From mangas to comic books to detective novels, these things keep me glued all day long. A foodie and a <span class="hl">Batman fanatic</span>, I spend most of my leisure time reading about human evolution and anthropology. Right now I'm exploring how to mitigate biases in Text-to-Image models; previously I worked on multimodal understanding of LVLMs and semi-supervised object detection. If you love playing FIFA and talking about research and comic books, do drop by Woodward Hall 3rd Floor, RM 331.</p>
     <blockquote class="quote">Somewhere, something incredible is waiting to be known.<span>— Carl Sagan</span></blockquote>
     <div class="socials">
@@ -310,7 +312,7 @@
     </div><!-- /hero-text -->
     <aside class="hero-portrait">
       <div class="portrait-frame">
-        <img src="assets/profile.jpg" alt="Rajatsubhra Chakraborty"
+        <img src="assets/profile.jpeg" alt="Rajatsubhra Chakraborty"
              onerror="this.style.display='none';this.parentElement.classList.add('ph')">
       </div>
       <div class="portrait-cap">Charlotte, NC</div>
@@ -322,23 +324,23 @@
   <section class="featured">
     <div class="sec-label">Latest News</div>
     <div class="news-grid">
-      <div class="news-card">
-        <span class="news-emoji">🎉</span>
-        <div class="news-tag">Milestone</div>
-        <h3>Qualifier Passed</h3>
-        <p>Cleared my PhD Qualifier Examination — onward to the next chapter.</p>
-      </div>
+      <a class="news-card" href="https://ritabrata04.github.io/m2bind/" target="_blank" rel="noopener">
+        <span class="news-emoji">📄</span>
+        <div class="news-tag">New Preprint · M²BIND</div>
+        <h3>VLMs are Fragile Multilingual Associators</h3>
+        <p>New preprint with Ritabrata Chakraborty et al. Read it on the project site. ↗</p>
+      </a>
+      <a class="news-card" href="https://chakrabortyrajatsubhra.github.io/biasmap/" target="_blank" rel="noopener">
+        <span class="news-emoji">🔥</span>
+        <div class="news-tag">KDD 2026 · South Korea</div>
+        <h3>BiasMap Accepted</h3>
+        <p>Accepted to ACM SIGKDD (18% acceptance). Project site is live — see you in Jeju! 🇰🇷 ↗</p>
+      </a>
       <div class="news-card">
         <span class="news-emoji">🥳</span>
         <div class="news-tag">ICIP 2026 · Finland</div>
         <h3>DM-QPMNet Accepted</h3>
         <p>Accepted to the IEEE International Conference on Image Processing. See you all in Tampere! 🇫🇮</p>
-      </div>
-      <div class="news-card">
-        <span class="news-emoji">🔥</span>
-        <div class="news-tag">KDD 2026 · South Korea</div>
-        <h3>BiasMap Accepted</h3>
-        <p>Accepted to ACM SIGKDD (18% acceptance rate). See you all in Jeju! 🇰🇷</p>
       </div>
     </div>
   </section>
@@ -372,6 +374,14 @@
       <div class="block">
         <div class="block-h">Currently Building</div>
         <div class="row">
+          <div class="when">Active</div>
+          <div class="what"><b>Causality &amp; Image Editing</b><span>Causal structure in counterfactual image editing for controllable, bias-aware generation.</span></div>
+        </div>
+        <div class="row">
+          <div class="when">Active</div>
+          <div class="what"><b>Open-Vocabulary Segmentation in Flow-Based Models</b><span>Open-vocabulary segmentation built on flow-based generative backbones.</span></div>
+        </div>
+        <div class="row">
           <div class="when">2025 — present</div>
           <div class="what"><b>VLM-Probe</b><span>A bias discovery framework for text-to-image models, with an exploration into causality.</span></div>
         </div>
@@ -400,9 +410,14 @@
 
       <div class="pub-year">2026</div>
       <div class="pub">
+        <div class="ptitle">Vision-Language Models are Fragile Multilingual Associators</div>
+        <div class="pauth">Ritabrata Chakraborty, <u>Rajatsubhra Chakraborty</u>, Shivakumara Palaiahnakote, Angelo Cangelosi, Umapada Pal</div>
+        <div class="pmeta"><span class="oral">New Preprint</span><span class="venue">M²BIND · 2026</span><a class="lnk" href="https://ritabrata04.github.io/m2bind/" target="_blank" rel="noopener">Website ↗</a></div>
+      </div>
+      <div class="pub">
         <div class="ptitle">BiasMap: Leveraging Cross-Attentions to Discover and Mitigate Hidden Social Biases in Text-to-Image Generation</div>
         <div class="pauth"><u>Rajatsubhra Chakraborty</u>, Xujun Che, Depeng Xu, Cori Faklaris, Xi Niu, Shuhan Yuan</div>
-        <div class="pmeta"><span class="venue">ACM SIGKDD (KDD) 2026</span><a class="lnk" href="https://arxiv.org/abs/2509.13496" target="_blank" rel="noopener">Paper ↗</a></div>
+        <div class="pmeta"><span class="venue">ACM SIGKDD (KDD) 2026</span><a class="lnk" href="https://arxiv.org/abs/2509.13496" target="_blank" rel="noopener">Paper ↗</a><a class="lnk" href="https://chakrabortyrajatsubhra.github.io/biasmap/" target="_blank" rel="noopener">Website ↗</a></div>
       </div>
       <div class="pub">
         <div class="ptitle">DM-QPMNet: Dual-modality Fusion Network for Cell Segmentation in Quantitative Phase Microscopy</div>
@@ -442,9 +457,10 @@
     <!-- NEWS -->
     <div class="pane" id="news">
       <p class="lead-text">The full running log — newest first.</p>
+      <div class="news-item"><div class="ic">📄</div><p>New preprint out — <a href="https://ritabrata04.github.io/m2bind/" target="_blank" rel="noopener"><strong>Vision-Language Models are Fragile Multilingual Associators (M²BIND)</strong></a>, with Ritabrata Chakraborty, Shivakumara Palaiahnakote, Angelo Cangelosi, and Umapada Pal. Project site is live!</p></div>
       <div class="news-item"><div class="ic">🎉</div><p>Yaay! I have passed my <strong>Qualifier Examination!</strong></p></div>
       <div class="news-item"><div class="ic">🥳</div><p><strong>DM-QPMNet</strong> has been accepted to the <strong>IEEE International Conference on Image Processing (ICIP) 2026</strong>! See you all in Tampere, Finland! 🇫🇮</p></div>
-      <div class="news-item"><div class="ic">🔥</div><p><strong>BiasMap</strong> has been accepted to the <strong>ACM SIGKDD (KDD) 2026</strong> (18% acceptance rate)! See you all in Jeju, South Korea! 🇰🇷</p></div>
+      <div class="news-item"><div class="ic">🔥</div><p><strong>BiasMap</strong> has been accepted to the <strong>ACM SIGKDD (KDD) 2026</strong> (18% acceptance rate)! The <a href="https://chakrabortyrajatsubhra.github.io/biasmap/" target="_blank" rel="noopener">project website</a> is live. See you all in Jeju, South Korea! 🇰🇷</p></div>
       <div class="news-item"><div class="ic">🎤</div><p>I gave a contributed talk in Room 213 of Music City Centre, Nashville, TN, at the DemoDiv CVPR workshop on June 11th at 11:45 AM.</p></div>
       <div class="news-item"><div class="ic">📄</div><p><a href="https://openreview.net/pdf?id=rkp2te25Wf" target="_blank" rel="noopener">BiasMap: Can Cross-Attention Uncover Hidden Social Biases?</a> was accepted at the <strong>CVPR 2025 DemoDiv Workshop</strong> — my first collaborative work with Dr. Depeng Xu and Dr. Cori Faklaris.</p></div>
       <div class="news-item"><div class="ic">🔭</div><p><a href="https://arxiv.org/abs/2503.15342" target="_blank" rel="noopener">TruthLens</a> preprint is out now!</p></div>
@@ -500,12 +516,15 @@
     <div class="pane" id="photography">
       <p class="lead-text">When I'm not chasing cross-attention maps, I'm chasing light on the street. A rotating set of frames — <span class="hl">street, travel, and the in-between</span>.</p>
       <div class="gallery">
-        <figure class="shot"><img src="assets/photography/01.jpg" alt="Street · Kolkata" onerror="this.style.display='none';this.parentElement.classList.add('ph')"><figcaption>Street · Kolkata</figcaption></figure>
-        <figure class="shot"><img src="assets/photography/02.jpg" alt="Dusk · Charlotte" onerror="this.style.display='none';this.parentElement.classList.add('ph')"><figcaption>Dusk · Charlotte</figcaption></figure>
-        <figure class="shot"><img src="assets/photography/03.jpg" alt="Portrait · Untitled" onerror="this.style.display='none';this.parentElement.classList.add('ph')"><figcaption>Portrait · Untitled</figcaption></figure>
-        <figure class="shot"><img src="assets/photography/04.jpg" alt="Lines · Nashville" onerror="this.style.display='none';this.parentElement.classList.add('ph')"><figcaption>Lines · Nashville</figcaption></figure>
-        <figure class="shot"><img src="assets/photography/05.jpg" alt="Market · Kolkata" onerror="this.style.display='none';this.parentElement.classList.add('ph')"><figcaption>Market · Kolkata</figcaption></figure>
-        <figure class="shot"><img src="assets/photography/06.jpg" alt="Night · Untitled" onerror="this.style.display='none';this.parentElement.classList.add('ph')"><figcaption>Night · Untitled</figcaption></figure>
+        <figure class="shot"><img src="assets/photography/01.jpg" alt="Street Photography" loading="lazy" src-fallback="" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://picsum.photos/seed/street01/600/800'}else{this.style.display='none';this.parentElement.classList.add('ph')}"><figcaption>Street Photography · Frame 01</figcaption></figure>
+        <figure class="shot"><img src="assets/photography/02.jpg" alt="Street Photography" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://picsum.photos/seed/street02/600/600'}else{this.style.display='none';this.parentElement.classList.add('ph')}"><figcaption>Street Photography · Frame 02</figcaption></figure>
+        <figure class="shot"><img src="assets/photography/03.jpg" alt="Street Photography" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://picsum.photos/seed/street03/600/900'}else{this.style.display='none';this.parentElement.classList.add('ph')}"><figcaption>Street Photography · Frame 03</figcaption></figure>
+        <figure class="shot"><img src="assets/photography/04.jpg" alt="Street Photography" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://picsum.photos/seed/street04/600/450'}else{this.style.display='none';this.parentElement.classList.add('ph')}"><figcaption>Street Photography · Frame 04</figcaption></figure>
+        <figure class="shot"><img src="assets/photography/05.jpg" alt="Street Photography" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://picsum.photos/seed/street05/600/750'}else{this.style.display='none';this.parentElement.classList.add('ph')}"><figcaption>Street Photography · Frame 05</figcaption></figure>
+        <figure class="shot"><img src="assets/photography/06.jpg" alt="Street Photography" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://picsum.photos/seed/street06/600/600'}else{this.style.display='none';this.parentElement.classList.add('ph')}"><figcaption>Street Photography · Frame 06</figcaption></figure>
+        <figure class="shot"><img src="assets/photography/07.jpg" alt="Street Photography" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://picsum.photos/seed/street07/600/820'}else{this.style.display='none';this.parentElement.classList.add('ph')}"><figcaption>Street Photography · Frame 07</figcaption></figure>
+        <figure class="shot"><img src="assets/photography/08.jpg" alt="Street Photography" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://picsum.photos/seed/street08/600/500'}else{this.style.display='none';this.parentElement.classList.add('ph')}"><figcaption>Street Photography · Frame 08</figcaption></figure>
+        <figure class="shot"><img src="assets/photography/09.jpg" alt="Street Photography" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://picsum.photos/seed/street09/600/700'}else{this.style.display='none';this.parentElement.classList.add('ph')}"><figcaption>Street Photography · Frame 09</figcaption></figure>
       </div>
     </div>
 
