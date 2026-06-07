@@ -16,10 +16,10 @@
     --text:#1a1611;
     --muted:#6b6256;
     --faint:#a89e8e;
-    --accent:#b9770c;
-    --accent-bright:#dd9b14;
-    --accent-soft:rgba(185,119,12,.12);
-    --accent-line:rgba(185,119,12,.40);
+    --accent:#1a56db;
+    --accent-bright:#3b82f6;
+    --accent-soft:rgba(26,86,219,.12);
+    --accent-line:rgba(26,86,219,.40);
     --line:rgba(26,22,17,.10);
     --line-strong:rgba(26,22,17,.17);
     --display:'Fraunces',Georgia,serif;
@@ -41,8 +41,8 @@
   body::before{
     content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
     background:
-      radial-gradient(900px 600px at 78% -8%, rgba(185,119,12,.07), transparent 60%),
-      radial-gradient(700px 700px at 8% 100%, rgba(185,119,12,.035), transparent 60%);
+      radial-gradient(900px 600px at 78% -8%, rgba(26,86,219,.07), transparent 60%),
+      radial-gradient(700px 700px at 8% 100%, rgba(26,86,219,.035), transparent 60%);
   }
   body::after{
     content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.03;
@@ -183,6 +183,7 @@
   .row .when{font-family:var(--mono);font-size:12px;letter-spacing:.5px;color:var(--accent);padding-top:3px}
   .row .what b{font-family:var(--display);font-weight:600;font-size:19px;display:block;margin-bottom:3px}
   .row .what span{color:var(--muted);font-size:16px}
+  .row .what .rdesc{margin-top:9px;font-size:15px;line-height:1.55;color:#4a4234;max-width:690px}
 
   /* publications */
   .pub-year{font-family:var(--display);font-weight:900;font-size:40px;color:var(--surface-2);-webkit-text-stroke:1px var(--faint);margin:34px 0 14px}
@@ -192,7 +193,7 @@
   .pub .pauth{font-size:15.5px;color:var(--muted);line-height:1.5}
   .pub .pauth u{color:var(--text);text-decoration:none;border-bottom:1px solid var(--accent-line)}
   .pub .pmeta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:4px}
-  .pub .venue{font-family:var(--mono);font-size:11.5px;letter-spacing:.5px;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:3px}
+  .pub .venue{font-family:var(--mono);font-size:11.5px;letter-spacing:.5px;color:var(--accent);background:var(--accent-soft);padding:4px 10px;border-radius:3px;font-weight:700}
   .pub .oral{font-family:var(--mono);font-size:11px;letter-spacing:.5px;color:#fff;background:var(--accent);padding:4px 9px;border-radius:3px;font-weight:700}
   .pub a.lnk{font-family:var(--mono);font-size:12px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line-strong);transition:all .2s}
   .pub a.lnk:hover{color:var(--accent);border-color:var(--accent-line)}
@@ -307,7 +308,7 @@
       <a href="https://github.com/" target="_blank" rel="noopener">↗ GitHub</a>
       <a href="https://twitter.com/Rajat_wayne" target="_blank" rel="noopener">↗ Twitter</a>
       <a href="mailto:rchakra6@charlotte.edu">✉ rchakra6@charlotte.edu</a>
-      <a class="cv" href="Resume_Rajatsubhra%20(8).pdf" target="_blank" rel="noopener">⬇ Curriculum Vitae</a>
+      <a class="cv" href="https://drive.google.com/file/d/1W1v_MiQ0uBOBCoAF-_RlRpRFFvJxOlPc/view?usp=sharing" target="_blank" rel="noopener">⬇ Curriculum Vitae</a>
     </div>
     </div><!-- /hero-text -->
     <aside class="hero-portrait">
@@ -360,7 +361,7 @@
     <!-- RESEARCH -->
     <div class="pane active" id="research">
       <div class="block">
-        <p class="lead-text">I work at the intersection of <span class="hl">interpretability, fairness, and bias</span> in generative AI — currently focused on discovering and mitigating social biases in Text-to-Image diffusion models. Earlier work spans multimodal understanding of large vision-language models and semi-supervised object detection. My undergraduate thesis tackled character recognition in Devanagari and Bengali script.</p>
+        <p class="lead-text">My current research sits at the intersection of <span class="hl">interpretability, fairness, and bias</span> in generative vision. I work on discovering and mitigating social biases in text-to-image diffusion models, causal structure in image editing, and open-vocabulary segmentation in flow-based generative models — alongside multilingual robustness in vision-language models.</p>
         <div class="tags">
           <span class="tag">Computer Vision</span>
           <span class="tag">Fairness in AI</span>
@@ -389,18 +390,61 @@
 
       <div class="block">
         <div class="block-h">Research Experience</div>
-        <div class="row"><div class="when">Aug 2023 — present</div><div class="what"><b>Graduate Research Assistant</b><span>University of North Carolina, Charlotte, USA</span></div></div>
-        <div class="row"><div class="when">Mar 2022 — Jul 2022</div><div class="what"><b>Student Research Assistant · PURE LAB</b><span>Wayne State University, Detroit, USA</span></div></div>
-        <div class="row"><div class="when">Sep 2020 — Feb 2021</div><div class="what"><b>Research Intern</b><span>University of Erlangen-Nuremberg, Germany</span></div></div>
-        <div class="row"><div class="when">Jul 2020 — Aug 2020</div><div class="what"><b>Research Intern</b><span>Jadavpur University, Kolkata, India</span></div></div>
-        <div class="row"><div class="when">May 2020 — Jul 2020</div><div class="what"><b>Summer Research Intern</b><span>Indian Statistical Institute, Kolkata, India</span></div></div>
+
+        <div class="row">
+          <div class="when">Summer 2026</div>
+          <div class="what"><b>Graduate Research Assistant · Dept. of Physics &amp; Optical Science</b><span>University of North Carolina, Charlotte, USA</span>
+            <p class="rdesc">Building DM-QPMNet, a dual-modality fusion network for cell segmentation in quantitative phase microscopy. Developing physics-aware models that stay robust under low-visibility imaging conditions.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="when">Jan 2025 — present</div>
+          <div class="what"><b>Graduate Researcher · Trustworthy AI Lab</b><span>University of North Carolina, Charlotte, USA</span>
+            <p class="rdesc">Proposed BiasMap, a model-agnostic pipeline that localizes and quantifies entanglement between demographic and semantic concepts in Stable Diffusion via cross-attention attribution. Designed energy-guided diffusion with a differentiable SoftIoU objective for plug-and-play bias mitigation without retraining.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="when">Aug 2023 — Jan 2025</div>
+          <div class="what"><b>Graduate Research Assistant · CharML Lab</b><span>University of North Carolina, Charlotte, USA</span>
+            <p class="rdesc">Co-developed LLAVIDAL, a large language-vision model for activities of daily living, and curated the 100K-pair ADL-X dataset with 3D poses and object trajectories. Built a curriculum-based semi-supervised detector that lifted aerial object-detection mAP by 32% using only 20% ground images.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="when">Mar 2022 — Jul 2022</div>
+          <div class="what"><b>Student Research Assistant · PURE Lab</b><span>Wayne State University, Detroit, USA</span>
+            <p class="rdesc">Engineered a U-Net model for cervical texture segmentation in ultrasound images, improving accuracy and clinical usability. Built an automatic multiclass segmentation pipeline that classified medical-imaging regions by tissue type.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="when">Oct 2020 — Dec 2020</div>
+          <div class="what"><b>Research Intern</b><span>Friedrich-Alexander-Universität Erlangen-Nürnberg, Germany</span>
+            <p class="rdesc">Designed deep local descriptors using CNNs for instance-level recognition of historical architecture. Focused on robust feature matching for heritage-building and landmark recognition.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="when">Jul 2020 — Aug 2020</div>
+          <div class="what"><b>Research Intern · CMATER Lab</b><span>Jadavpur University, Kolkata, India</span>
+            <p class="rdesc">Developed transfer-learning models for handwritten character recognition, reaching 99.99% accuracy with a VGG16 backbone. Worked on Bangla and Devanagari script-recognition pipelines.</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="when">May 2020 — Jul 2020</div>
+          <div class="what"><b>Summer Research Intern</b><span>Indian Statistical Institute, Kolkata, India</span>
+            <p class="rdesc">Designed an automatic text-detection pipeline for Indus Valley Civilization seals. Explored computer-vision approaches to localizing undeciphered scripts.</p>
+          </div>
+        </div>
       </div>
 
       <div class="block">
         <div class="block-h">Education</div>
         <div class="row"><div class="when">Aug 2023 — present</div><div class="what"><b>Ph.D. in Computer Science</b><span>University of North Carolina, Charlotte, USA</span></div></div>
-        <div class="row"><div class="when">2021 — 2023</div><div class="what"><b>Coursework, Computer Science</b><span>Transferred to UNC Charlotte after coursework at Wayne State University, Detroit, MI</span></div></div>
-        <div class="row"><div class="when">2017 — 2021</div><div class="what"><b>B.Tech. in Computer Science &amp; Engineering</b><span>Maulana Abul Kalam Azad University of Technology, India</span></div></div>
+        <div class="row"><div class="when">2017 — 2021</div><div class="what"><b>B.Tech. in Computer Science &amp; Engineering</b><span>Future Institute of Engineering and Management, Kolkata, India</span></div></div>
       </div>
     </div>
 
